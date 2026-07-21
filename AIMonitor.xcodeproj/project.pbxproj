@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		562DC7BE23DCF9532D8AA28C /* PulseMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */; };
+		56CCB6C173299E88486D13EB /* MonitorSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */; };
+		5FB40205F5E4568BA4CDE64C /* MonitorWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D5542FACD383421039C33C /* MonitorWidgets.swift */; };
+		7CB3F57040AD491D679ECC5C /* MonitorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D46334DAC4791415DDAB29 /* MonitorMenu.swift */; };
+		CA9672AED6F8322E6FEFD243 /* LocalOnlyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */; };
+		D434990A73B2958855B161C5 /* AIMonitorWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D7BCB0476A35FDE88E60F162 /* MonitorSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */; };
+		E2C51AEC1E3BF173BF6F25A4 /* MachineVitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932F990F7D0C4B1C948E174 /* MachineVitals.swift */; };
+		EA990357C246DC6219958EB5 /* LocalOnlyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */; };
+		F6FCFC14B68414297FD019CB /* MachineVitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932F990F7D0C4B1C948E174 /* MachineVitals.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		722EBA63A7B9882F919D746D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB03FAE35B98CB54DCC7B70E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F418AA0951B410A6DE96B27;
+			remoteInfo = AIMonitorWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1B3E57FEC05F79E19C610AE /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D434990A73B2958855B161C5 /* AIMonitorWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3BA95AC688E324454BD8F8C4 /* AIMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMonitorApp.swift; sourceTree = "<group>"; };
+		481E64F667983AA24ABB8CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		72D46334DAC4791415DDAB29 /* MonitorMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorMenu.swift; sourceTree = "<group>"; };
+		9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalOnlyPolicy.swift; sourceTree = "<group>"; };
+		A932F990F7D0C4B1C948E174 /* MachineVitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineVitals.swift; sourceTree = "<group>"; };
+		BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorSnapshot.swift; sourceTree = "<group>"; };
+		F2D5542FACD383421039C33C /* MonitorWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorWidgets.swift; sourceTree = "<group>"; };
+		F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AIMonitorWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9EAC9E4CE2D19064CB82FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		17255EA49213C070BF2A00F2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F9EAC9E4CE2D19064CB82FB2 /* Info.plist */,
+				72D46334DAC4791415DDAB29 /* MonitorMenu.swift */,
+				470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4717EDF73D7F4A816FA70ED5 = {
+			isa = PBXGroup;
+			children = (
+				17255EA49213C070BF2A00F2 /* App */,
+				D13FC27E3D14B696BE74121A /* Sources */,
+				496FB5F3173126CC2BF360A3 /* Widgets */,
+				FEF0C0EE5DEA3A4D5453AE33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		496FB5F3173126CC2BF360A3 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				481E64F667983AA24ABB8CB2 /* Info.plist */,
+				F2D5542FACD383421039C33C /* MonitorWidgets.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		4B3B42C629DB1DFA8BDBEA32 /* AIMonitorCore */ = {
+			isa = PBXGroup;
+			children = (
+				9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */,
+				A932F990F7D0C4B1C948E174 /* MachineVitals.swift */,
+				BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */,
+			);
+			path = AIMonitorCore;
+			sourceTree = "<group>";
+		};
+		D13FC27E3D14B696BE74121A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4B3B42C629DB1DFA8BDBEA32 /* AIMonitorCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FEF0C0EE5DEA3A4D5453AE33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BA95AC688E324454BD8F8C4 /* AIMonitor.app */,
+				F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0FEECB79064F69FDD78B9045 /* AIMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A38FFF50219943AB7C656AD5 /* Build configuration list for PBXNativeTarget "AIMonitor" */;
+			buildPhases = (
+				55F614949FB1971F63F32410 /* Sources */,
+				E1B3E57FEC05F79E19C610AE /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F5561666775DE7CBA64E2AC /* PBXTargetDependency */,
+			);
+			name = AIMonitor;
+			packageProductDependencies = (
+			);
+			productName = AIMonitor;
+			productReference = 3BA95AC688E324454BD8F8C4 /* AIMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F418AA0951B410A6DE96B27 /* AIMonitorWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41D764A32258E2E469CB3A5E /* Build configuration list for PBXNativeTarget "AIMonitorWidgets" */;
+			buildPhases = (
+				1EED5B3E6D1560E8098F6985 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AIMonitorWidgets;
+			packageProductDependencies = (
+			);
+			productName = AIMonitorWidgets;
+			productReference = F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB03FAE35B98CB54DCC7B70E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 5E77F2969376847A72C07C97 /* Build configuration list for PBXProject "AIMonitor" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4717EDF73D7F4A816FA70ED5;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FEF0C0EE5DEA3A4D5453AE33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0FEECB79064F69FDD78B9045 /* AIMonitor */,
+				1F418AA0951B410A6DE96B27 /* AIMonitorWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1EED5B3E6D1560E8098F6985 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA990357C246DC6219958EB5 /* LocalOnlyPolicy.swift in Sources */,
+				E2C51AEC1E3BF173BF6F25A4 /* MachineVitals.swift in Sources */,
+				56CCB6C173299E88486D13EB /* MonitorSnapshot.swift in Sources */,
+				5FB40205F5E4568BA4CDE64C /* MonitorWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		55F614949FB1971F63F32410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA9672AED6F8322E6FEFD243 /* LocalOnlyPolicy.swift in Sources */,
+				F6FCFC14B68414297FD019CB /* MachineVitals.swift in Sources */,
+				7CB3F57040AD491D679ECC5C /* MonitorMenu.swift in Sources */,
+				D7BCB0476A35FDE88E60F162 /* MonitorSnapshot.swift in Sources */,
+				562DC7BE23DCF9532D8AA28C /* PulseMonitorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F5561666775DE7CBA64E2AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F418AA0951B410A6DE96B27 /* AIMonitorWidgets */;
+			targetProxy = 722EBA63A7B9882F919D746D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0597312D84F9375198FB930F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		0687D81E15999A67EA476913 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.joepeng077.aimonitor;
+				PRODUCT_NAME = "AI Monitor";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		1C2A94ABBE99BCB8A73BCD90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		54F2719C431CADE59D7656D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.joepeng077.aimonitor;
+				PRODUCT_NAME = "AI Monitor";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		94B40FCE6C924C3393D9ED7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.joepeng077.aimonitor.widgets;
+				PRODUCT_NAME = "AI Monitor Widgets";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B12E0DD5E7667F625FEC5326 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Widgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.joepeng077.aimonitor.widgets;
+				PRODUCT_NAME = "AI Monitor Widgets";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41D764A32258E2E469CB3A5E /* Build configuration list for PBXNativeTarget "AIMonitorWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B12E0DD5E7667F625FEC5326 /* Debug */,
+				94B40FCE6C924C3393D9ED7F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5E77F2969376847A72C07C97 /* Build configuration list for PBXProject "AIMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0597312D84F9375198FB930F /* Debug */,
+				1C2A94ABBE99BCB8A73BCD90 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A38FFF50219943AB7C656AD5 /* Build configuration list for PBXNativeTarget "AIMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0687D81E15999A67EA476913 /* Debug */,
+				54F2719C431CADE59D7656D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB03FAE35B98CB54DCC7B70E /* Project object */;
+}

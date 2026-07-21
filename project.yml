@@ -1,0 +1,46 @@
+name: AIMonitor
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+targets:
+  AIMonitor:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+      - path: Sources/AIMonitorCore
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: AI Monitor
+        LSUIElement: true
+        NSHumanReadableCopyright: "Copyright 2026 AI Monitor contributors"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.joepeng077.aimonitor
+        PRODUCT_NAME: AI Monitor
+    dependencies:
+      - target: AIMonitorWidgets
+        embed: true
+  AIMonitorWidgets:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: Widgets
+      - path: Sources/AIMonitorCore
+    info:
+      path: Widgets/Info.plist
+      properties:
+        CFBundleDisplayName: AI Monitor Widgets
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.joepeng077.aimonitor.widgets
+        PRODUCT_NAME: AI Monitor Widgets
+        SKIP_INSTALL: true
