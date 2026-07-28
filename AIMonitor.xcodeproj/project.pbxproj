@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BCA8C0B062956B7F72501A2 /* SystemSummaryStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B9785DE4CFCE2FC4C7ACC3 /* SystemSummaryStrip.swift */; };
 		562DC7BE23DCF9532D8AA28C /* PulseMonitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */; };
 		56CCB6C173299E88486D13EB /* MonitorSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */; };
+		5DFA79A788D927A3D82704E7 /* MonitorMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC9280A090CD1E2C7442C3 /* MonitorMenuHeader.swift */; };
 		5FB40205F5E4568BA4CDE64C /* MonitorWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D5542FACD383421039C33C /* MonitorWidgets.swift */; };
 		7CB3F57040AD491D679ECC5C /* MonitorMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D46334DAC4791415DDAB29 /* MonitorMenu.swift */; };
+		9FAE6B80A0824DA69DF10CA3 /* MonitorMenuFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612F982FB868FF21FA697815 /* MonitorMenuFooter.swift */; };
 		CA9672AED6F8322E6FEFD243 /* LocalOnlyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */; };
 		D434990A73B2958855B161C5 /* AIMonitorWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D7BCB0476A35FDE88E60F162 /* MonitorSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */; };
 		E2C51AEC1E3BF173BF6F25A4 /* MachineVitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932F990F7D0C4B1C948E174 /* MachineVitals.swift */; };
 		EA990357C246DC6219958EB5 /* LocalOnlyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */; };
+		F6E2F3270FB924358FA464D5 /* ProviderStatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9110EAC3E1153B5427041D /* ProviderStatusRow.swift */; };
 		F6FCFC14B68414297FD019CB /* MachineVitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932F990F7D0C4B1C948E174 /* MachineVitals.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,10 +51,14 @@
 		3BA95AC688E324454BD8F8C4 /* AIMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseMonitorApp.swift; sourceTree = "<group>"; };
 		481E64F667983AA24ABB8CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		612F982FB868FF21FA697815 /* MonitorMenuFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorMenuFooter.swift; sourceTree = "<group>"; };
 		72D46334DAC4791415DDAB29 /* MonitorMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorMenu.swift; sourceTree = "<group>"; };
+		8D9110EAC3E1153B5427041D /* ProviderStatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderStatusRow.swift; sourceTree = "<group>"; };
+		91B9785DE4CFCE2FC4C7ACC3 /* SystemSummaryStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSummaryStrip.swift; sourceTree = "<group>"; };
 		9DDB61FB5EE87E5CF638F1E5 /* LocalOnlyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalOnlyPolicy.swift; sourceTree = "<group>"; };
 		A932F990F7D0C4B1C948E174 /* MachineVitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineVitals.swift; sourceTree = "<group>"; };
 		BB3CA3FD9A14660DFC964E78 /* MonitorSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorSnapshot.swift; sourceTree = "<group>"; };
+		D4EC9280A090CD1E2C7442C3 /* MonitorMenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorMenuHeader.swift; sourceTree = "<group>"; };
 		F2D5542FACD383421039C33C /* MonitorWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorWidgets.swift; sourceTree = "<group>"; };
 		F594ACA67B89A4F30389E97B /* AIMonitorWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AIMonitorWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9EAC9E4CE2D19064CB82FB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -62,7 +70,11 @@
 			children = (
 				F9EAC9E4CE2D19064CB82FB2 /* Info.plist */,
 				72D46334DAC4791415DDAB29 /* MonitorMenu.swift */,
+				612F982FB868FF21FA697815 /* MonitorMenuFooter.swift */,
+				D4EC9280A090CD1E2C7442C3 /* MonitorMenuHeader.swift */,
+				8D9110EAC3E1153B5427041D /* ProviderStatusRow.swift */,
 				470CBEE806730FB47BFC120E /* PulseMonitorApp.swift */,
+				91B9785DE4CFCE2FC4C7ACC3 /* SystemSummaryStrip.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -202,8 +214,12 @@
 				CA9672AED6F8322E6FEFD243 /* LocalOnlyPolicy.swift in Sources */,
 				F6FCFC14B68414297FD019CB /* MachineVitals.swift in Sources */,
 				7CB3F57040AD491D679ECC5C /* MonitorMenu.swift in Sources */,
+				9FAE6B80A0824DA69DF10CA3 /* MonitorMenuFooter.swift in Sources */,
+				5DFA79A788D927A3D82704E7 /* MonitorMenuHeader.swift in Sources */,
 				D7BCB0476A35FDE88E60F162 /* MonitorSnapshot.swift in Sources */,
+				F6E2F3270FB924358FA464D5 /* ProviderStatusRow.swift in Sources */,
 				562DC7BE23DCF9532D8AA28C /* PulseMonitorApp.swift in Sources */,
+				2BCA8C0B062956B7F72501A2 /* SystemSummaryStrip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
