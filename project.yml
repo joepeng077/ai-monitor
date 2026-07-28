@@ -18,6 +18,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: AI Monitor
+        CFBundleShortVersionString: "1.1.0"
+        CFBundleVersion: "2"
         LSUIElement: true
         NSHumanReadableCopyright: "Copyright 2026 AI Monitor contributors"
     settings:
@@ -37,6 +39,8 @@ targets:
       path: Widgets/Info.plist
       properties:
         CFBundleDisplayName: AI Monitor Widgets
+        CFBundleShortVersionString: "1.1.0"
+        CFBundleVersion: "2"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
