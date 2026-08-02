@@ -7,7 +7,14 @@ struct PulseMonitorApp: App {
 
     var body: some Scene {
         MenuBarExtra("AI Monitor", systemImage: "waveform.path.ecg") {
-            MonitorMenu(vitals: vitals) {
+            MonitorMenu(
+                vitals: vitals,
+                snapshots: [
+                    .notConfigured(.codex),
+                    .notConfigured(.claude),
+                    .notConfigured(.workBuddy)
+                ]
+            ) {
                 vitals = MachineVitals.read()
                 WidgetCenter.shared.reloadAllTimelines()
             }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MonitorMenu: View {
     let vitals: MachineVitals
+    let snapshots: [MonitorSnapshot]
     let refresh: () -> Void
 
     var body: some View {
@@ -11,11 +12,11 @@ struct MonitorMenu: View {
             SystemSummaryStrip(vitals: vitals)
             Divider()
             VStack(spacing: 0) {
-                ProviderStatusRow(source: .codex, systemImage: "terminal")
+                ProviderStatusRow(snapshot: snapshot(for: .codex), systemImage: "terminal")
                 Divider().padding(.leading, 42)
-                ProviderStatusRow(source: .claude, systemImage: "sparkles")
+                ProviderStatusRow(snapshot: snapshot(for: .claude), systemImage: "sparkles")
                 Divider().padding(.leading, 42)
-                ProviderStatusRow(source: .workBuddy, systemImage: "rectangle.3.group")
+                ProviderStatusRow(snapshot: snapshot(for: .workBuddy), systemImage: "rectangle.3.group")
             }
             Divider()
             MonitorMenuFooter(refresh: refresh, quit: quitApplication)
@@ -25,5 +26,9 @@ struct MonitorMenu: View {
 
     private func quitApplication() {
         NSApplication.shared.terminate(nil)
+    }
+
+    private func snapshot(for source: MonitorSource) -> MonitorSnapshot {
+        snapshots.first { $0.source == source } ?? .notConfigured(source)
     }
 }
