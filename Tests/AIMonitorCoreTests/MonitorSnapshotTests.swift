@@ -45,6 +45,18 @@ final class MonitorSnapshotTests: XCTestCase {
         XCTAssertFalse(try XCTUnwrap(String(data: data, encoding: .utf8)).contains("planLabel"))
     }
 
+    func testCurrentAccountPlanWinsOverLegacyPaidLabel() throws {
+        let json = #"{"source":"codex","availability":"ready","accountPlan":"Free","planLabel":"Pro 5×","primaryValue":"85%","detail":"每周剩余","refreshedAt":0}"#
+        let decoded = try JSONDecoder().decode(MonitorSnapshot.self, from: Data(json.utf8))
+        XCTAssertEqual(decoded.accountPlan, "Free")
+    }
+
+    func testInvalidCurrentAccountPlanDoesNotReviveLegacyPaidLabel() throws {
+        let json = #"{"source":"codex","availability":"ready","accountPlan":"   ","planLabel":"Pro 5×","primaryValue":"85%","detail":"每周剩余","refreshedAt":0}"#
+        let decoded = try JSONDecoder().decode(MonitorSnapshot.self, from: Data(json.utf8))
+        XCTAssertNil(decoded.accountPlan)
+    }
+
     func testLegacyPlanLabelStillDecodes() throws {
         let json = #"{"source":"codex","availability":"ready","planLabel":"Free","primaryValue":"94%","detail":"每周剩余","refreshedAt":0}"#
         let decoded = try JSONDecoder().decode(MonitorSnapshot.self, from: Data(json.utf8))

@@ -27,6 +27,8 @@ public enum MonitorAvailability: String, Codable, Sendable {
 public struct MonitorSnapshot: Codable, Sendable, Equatable {
     public let source: MonitorSource
     public let availability: MonitorAvailability
+    /// A reviewed provider or local sanitized import supplies this display value.
+    /// The public core intentionally has no local override or paid-plan fallback.
     public let accountPlan: String?
     public let primaryValue: String
     public let detail: String
