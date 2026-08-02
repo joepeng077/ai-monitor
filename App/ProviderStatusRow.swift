@@ -1,27 +1,40 @@
 import SwiftUI
 
 struct ProviderStatusRow: View {
-    let source: MonitorSource
+    let snapshot: MonitorSnapshot
     let systemImage: String
 
     var body: some View {
         HStack(spacing: 10) {
-            Label(source.displayName, systemImage: systemImage)
+            Label(snapshot.source.displayName, systemImage: systemImage)
                 .font(.subheadline)
                 .foregroundStyle(.primary)
             Spacer(minLength: 8)
             VStack(alignment: .trailing, spacing: 1) {
-                Text("未启用")
+                Text(statusText)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                Text("账户数据保持关闭")
+                Text(detailText)
                     .font(.caption)
                     .foregroundStyle(.tertiary)
+                    .lineLimit(1)
             }
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(source.displayName)，未启用，公开版不会读取账户登录态")
+        .accessibilityLabel("\(snapshot.source.displayName)，\(statusText)，\(detailText)")
+    }
+
+    private var statusText: String {
+        snapshot.accountPlan ?? snapshot.primaryValue
+    }
+
+    private var detailText: String {
+        if snapshot.accountPlan == nil {
+            snapshot.detail
+        } else {
+            "\(snapshot.primaryValue) · \(snapshot.detail)"
+        }
     }
 }

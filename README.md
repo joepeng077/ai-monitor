@@ -2,7 +2,14 @@
 
 AI Monitor 是一个本机优先的 macOS 菜单栏工具和 WidgetKit 小组件集合。
 
-> 状态：公开版 `1.1.0`。它可以显示 Mac 系统状态，并提供 Codex、Claude、WorkBuddy 三张默认**不读取账户登录态**的小组件。
+> 状态：公开版 `1.1.1`。它可以显示 Mac 系统状态，并提供 Codex、Claude、WorkBuddy 三张默认**不读取账户登录态**的小组件。
+
+## 1.1.1 更新
+
+- Codex 套餐显示改为由脱敏快照动态提供，不再允许界面回退到固定的付费套餐。
+- 菜单与桌面组件共用可选的 `MonitorSnapshot.accountPlan`；安全 provider 传入 `Free` 时，两处都会显示 `Free`。
+- 旧版 `planLabel` 快照仍可读取；没有套餐值时隐藏标签，未配置状态保持不变。
+- 账户自动读取仍然关闭，本次没有加入 Cookie、令牌、私有日志或非公开接口访问。
 
 ## 1.1.0 更新
 

@@ -29,7 +29,7 @@ private struct ProviderCard: View {
             HStack(spacing: 8) {
                 Image(systemName: symbol).foregroundStyle(accent)
                 Text(source.displayName).font(.headline)
-                if let label = snapshot.planLabel {
+                if let label = snapshot.accountPlan {
                     Text(label)
                         .font(.caption.weight(.semibold))
                         .padding(.horizontal, 7).padding(.vertical, 3)
