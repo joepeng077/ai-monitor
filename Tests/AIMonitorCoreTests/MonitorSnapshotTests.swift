@@ -45,6 +45,22 @@ final class MonitorSnapshotTests: XCTestCase {
         XCTAssertFalse(try XCTUnwrap(String(data: data, encoding: .utf8)).contains("planLabel"))
     }
 
+    func testCodexDisplayAliasesPreserveProviderCasing() throws {
+        for alias in ["Pro 5x", "Pro 10x", "Pro 50x", "Plus"] {
+            let snapshot = MonitorSnapshot(
+                source: .codex,
+                availability: .ready,
+                accountPlan: alias,
+                primaryValue: "--",
+                detail: "每周剩余"
+            )
+
+            let data = try JSONEncoder().encode(snapshot)
+            let decoded = try JSONDecoder().decode(MonitorSnapshot.self, from: data)
+            XCTAssertEqual(decoded.accountPlan, alias)
+        }
+    }
+
     func testCurrentAccountPlanWinsOverLegacyPaidLabel() throws {
         let json = #"{"source":"codex","availability":"ready","accountPlan":"Free","planLabel":"Pro 5×","primaryValue":"85%","detail":"每周剩余","refreshedAt":0}"#
         let decoded = try JSONDecoder().decode(MonitorSnapshot.self, from: Data(json.utf8))
