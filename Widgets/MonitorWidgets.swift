@@ -1,132 +1,131 @@
 import SwiftUI
 import WidgetKit
 
-private struct WidgetMoment: TimelineEntry {
-    let date: Date
-}
+struct PublicWidgetMoment: TimelineEntry { let date: Date }
 
-private struct MinuteTimeline: TimelineProvider {
-    typealias Entry = WidgetMoment
-
-    func placeholder(in context: Context) -> WidgetMoment { WidgetMoment(date: .now) }
-    func getSnapshot(in context: Context, completion: @escaping (WidgetMoment) -> Void) {
-        completion(WidgetMoment(date: .now))
-    }
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetMoment>) -> Void) {
-        let next = Calendar.current.date(byAdding: .minute, value: 5, to: .now) ?? .now
-        completion(Timeline(entries: [WidgetMoment(date: .now)], policy: .after(next)))
-    }
-}
-
-private struct ProviderCard: View {
-    let source: MonitorSource
-    let symbol: String
-    let accent: Color
-    let snapshot: MonitorSnapshot
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 8) {
-                Image(systemName: symbol).foregroundStyle(accent)
-                Text(source.displayName).font(.headline)
-                if let label = snapshot.accountPlan {
-                    Text(label)
-                        .font(.caption.weight(.semibold))
-                        .padding(.horizontal, 7).padding(.vertical, 3)
-                        .background(.quaternary, in: Capsule())
-                }
-                Spacer()
-            }
-            Spacer()
-            Text(snapshot.primaryValue).font(.title2.weight(.bold))
-            Text(snapshot.detail).font(.caption).foregroundStyle(.secondary)
-            Text(snapshot.refreshedAt, style: .time).font(.caption2).foregroundStyle(.tertiary)
-        }
-        .padding()
-        .containerBackground(for: .widget) { Color.black.opacity(0.82) }
+struct PublicWidgetTimeline: TimelineProvider {
+    func placeholder(in context: Context) -> PublicWidgetMoment { .init(date: .now) }
+    func getSnapshot(in context: Context, completion: @escaping (PublicWidgetMoment) -> Void) { completion(.init(date: .now)) }
+    func getTimeline(in context: Context, completion: @escaping (Timeline<PublicWidgetMoment>) -> Void) {
+        let now = Date.now
+        completion(Timeline(entries: [.init(date: now)], policy: .after(now.addingTimeInterval(300))))
     }
 }
 
 struct CodexSummaryWidget: Widget {
     let kind = "io.github.joepeng077.aimonitor.codex"
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: MinuteTimeline()) { _ in
-            ProviderCard(source: .codex, symbol: "terminal", accent: .indigo, snapshot: .notConfigured(.codex))
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            CodexFamilyCard(snapshot: .empty, now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .codex) }
         }
         .configurationDisplayName("Codex 总览")
-        .description("不读取账号登录态的本地概览卡。")
-        .supportedFamilies([.systemMedium, .systemLarge])
+        .description("5 小时与每周额度，以及最近完整自然日的 Token 用量。账户读取未启用。")
+        .supportedFamilies([.systemMedium, .systemLarge]).contentMarginsDisabled()
+    }
+}
+
+struct CodexFiveDayWidget: Widget {
+    let kind = "io.github.joepeng077.aimonitor.codex.fiveDay"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            CodexFiveDayCard(snapshot: .empty, now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .codex) }
+        }
+        .configurationDisplayName("Codex 双限额与五日用量")
+        .description("双额度、各自重置时间与近 5 天 Token 用量。账户读取未启用。")
+        .supportedFamilies([.systemMedium]).contentMarginsDisabled()
     }
 }
 
 struct ClaudeStatusWidget: Widget {
     let kind = "io.github.joepeng077.aimonitor.claude"
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: MinuteTimeline()) { _ in
-            ProviderCard(source: .claude, symbol: "sparkles", accent: .orange, snapshot: .notConfigured(.claude))
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { _ in
+            ClaudeDualCard(snapshot: .empty)
+                .containerBackground(for: .widget) { WidgetSurface(service: .claude) }
         }
-        .configurationDisplayName("Claude")
-        .description("默认不读取浏览器 Cookie 或登录态。")
-        .supportedFamilies([.systemMedium])
+        .configurationDisplayName("Claude 双额度")
+        .description("两行电池显示 5 小时与每周剩余额度。账户读取未启用。")
+        .supportedFamilies([.systemMedium]).contentMarginsDisabled()
+    }
+}
+
+struct ClaudeSmallWidget: Widget {
+    let kind = "io.github.joepeng077.aimonitor.claude.small"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { _ in
+            ClaudeSmallCard(snapshot: .empty)
+                .containerBackground(for: .widget) { WidgetSurface(service: .claudeSmall) }
+        }
+        .configurationDisplayName("Claude 用量")
+        .description("紧凑显示两组额度及重置时间。账户读取未启用。")
+        .supportedFamilies([.systemSmall]).contentMarginsDisabled()
+    }
+}
+
+struct ClaudeOverviewWidget: Widget {
+    let kind = "io.github.joepeng077.aimonitor.claude.overview"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            ClaudeOverviewCard(snapshot: .empty, now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .claude) }
+        }
+        .configurationDisplayName("Claude 总览")
+        .description("双额度、Fable 专属额度、重置次数与 7 日 Token 用量。账户读取未启用。")
+        .supportedFamilies([.systemLarge]).contentMarginsDisabled()
+    }
+}
+
+struct DeepSeekBalanceWidget: Widget {
+    let kind = "io.github.joepeng077.aimonitor.deepseek"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            DeepSeekCard(snapshot: .empty, now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .deepSeek) }
+        }
+        .configurationDisplayName("DeepSeek 余额与五日消耗")
+        .description("余额、Flash 与 Pro 月费用、最近 5 天费用。账户读取未启用。")
+        .supportedFamilies([.systemMedium]).contentMarginsDisabled()
     }
 }
 
 struct WorkBuddyCreditsWidget: Widget {
     let kind = "io.github.joepeng077.aimonitor.workbuddy"
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: MinuteTimeline()) { _ in
-            ProviderCard(source: .workBuddy, symbol: "rectangle.3.group", accent: .mint, snapshot: .notConfigured(.workBuddy))
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            WorkBuddyFamilyCard(snapshot: .empty, now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .workBuddy) }
         }
-        .configurationDisplayName("WorkBuddy")
-        .description("默认不访问账户令牌或非公开接口。")
-        .supportedFamilies([.systemMedium, .systemLarge])
+        .configurationDisplayName("WorkBuddy 用量")
+        .description("积分余额、近 7 天消耗与模型分布。账户读取未启用。")
+        .supportedFamilies([.systemMedium, .systemLarge]).contentMarginsDisabled()
     }
 }
 
 struct MacVitalsWidget: Widget {
     let kind = "io.github.joepeng077.aimonitor.mac"
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: MinuteTimeline()) { _ in
-            MacCard(vitals: .read())
+        StaticConfiguration(kind: kind, provider: PublicWidgetTimeline()) { entry in
+            MacVitalsCard(vitals: .read(), now: entry.date)
+                .containerBackground(for: .widget) { WidgetSurface(service: .mac) }
         }
         .configurationDisplayName("Mac 状态")
-        .description("只读取本机公开系统指标。")
-        .supportedFamilies([.systemMedium])
-    }
-}
-
-private struct MacCard: View {
-    let vitals: MachineVitals
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Label("Mac 状态", systemImage: "desktopcomputer").font(.headline)
-            HStack {
-                stat("CPU", "\\(vitals.logicalCoreCount) 核")
-                stat("内存", vitals.memoryText)
-                stat("存储", "\\(vitals.diskPercentUsed)%")
-            }
-            Spacer()
-            Text("本机采集 · 无网络请求").font(.caption).foregroundStyle(.secondary)
-        }
-        .padding()
-        .containerBackground(for: .widget) { Color.black.opacity(0.82) }
-    }
-
-    private func stat(_ title: String, _ value: String) -> some View {
-        VStack(alignment: .leading) {
-            Text(title).font(.caption).foregroundStyle(.secondary)
-            Text(value).font(.title3.weight(.semibold)).monospacedDigit()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .description("查看 CPU 核心数、总内存与系统盘可用空间。")
+        .supportedFamilies([.systemMedium]).contentMarginsDisabled()
     }
 }
 
 @main
 struct MonitorWidgets: WidgetBundle {
     var body: some Widget {
-        CodexSummaryWidget()
-        ClaudeStatusWidget()
-        WorkBuddyCreditsWidget()
         MacVitalsWidget()
+        DeepSeekBalanceWidget()
+        WorkBuddyCreditsWidget()
+        ClaudeSmallWidget()
+        ClaudeStatusWidget()
+        ClaudeOverviewWidget()
+        CodexSummaryWidget()
+        CodexFiveDayWidget()
     }
 }

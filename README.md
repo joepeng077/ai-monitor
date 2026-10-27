@@ -2,7 +2,17 @@
 
 AI Monitor 是一个本机优先的 macOS 菜单栏工具和 WidgetKit 小组件集合。
 
-> 状态：公开版 `1.1.3`。它可以显示 Mac 系统状态，并提供 Codex、Claude、WorkBuddy 三张默认**不读取账户登录态**的小组件。
+> 状态：公开版 `1.2.0`。提供八种小组件布局；Mac 显示本机系统指标，账户组件默认显示“未启用”，**不读取账户登录态**。
+
+## 1.2.0 更新
+
+- 独立实现目前保留的八种组件界面：Mac 状态、DeepSeek 余额与五日消耗、WorkBuddy 用量、Claude 用量／双额度／总览、Codex 总览／双限额与五日用量。
+- 不包含已移除的 Claude 额度焦点、Codex 周额度和 Codex 横向周额度。
+- 增加仅供展示的可选额度、重置次数、Fable、费用和用量模型；未知值与真实 0 分开显示。
+- 账户读取继续关闭；没有新增账号连接、数据导入入口、后台采集或网络请求。界面预览不代表账户功能已接入。
+- 保留已有公开组件标识，使用系统符号，不分发本机私有实现或品牌图片。
+
+组件范围及兼容说明见 [docs/WIDGETS.md](docs/WIDGETS.md)。
 
 ## 1.1.3 更新
 
@@ -33,7 +43,7 @@ AI Monitor 是一个本机优先的 macOS 菜单栏工具和 WidgetKit 小组件
 
 - 不提交、读取或上传 API Key、Cookie、令牌、钥匙串、浏览器资料或其他应用私有文件。
 - 不含遥测、分析 SDK 或后台服务。
-- Codex、Claude、WorkBuddy 的自动账户刷新尚未开放；它们需要先有公开、允许使用的数据方式与单独的隐私审查。
+- Codex、Claude、DeepSeek、WorkBuddy 的自动账户刷新尚未开放；它们需要先有公开、允许使用的数据方式与单独的隐私审查。
 - 所有图标均使用 macOS 系统符号；本项目与 OpenAI、Anthropic、WorkBuddy 或 CodeBuddy 没有关联或背书关系。
 
 ## 本地构建
@@ -44,7 +54,7 @@ AI Monitor 是一个本机优先的 macOS 菜单栏工具和 WidgetKit 小组件
 xcodebuild -project AIMonitor.xcodeproj -scheme AIMonitor -configuration Debug build CODE_SIGNING_ALLOWED=NO
 ```
 
-在 Xcode 中选择你的 Development Team 后，即可为自己的 Mac 构建和安装。首次运行后，从系统小组件库添加四张卡片。
+在 Xcode 中选择你的 Development Team 后，即可为自己的 Mac 构建和安装。首次运行后，从系统小组件库选择所需样式。
 
 ## 验证
 
